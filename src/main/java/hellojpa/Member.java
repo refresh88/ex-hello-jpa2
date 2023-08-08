@@ -13,8 +13,8 @@ public class Member extends BaseEntity{
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY) // 이렇게 하면 team을 프록시 객체로 조회함.
+    @JoinColumn
     private Team team;
 
     public Long getId() {
