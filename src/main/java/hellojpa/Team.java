@@ -8,16 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Team extends BaseEntity{
+public class Team {
 
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-
-    @OneToMany(mappedBy = "team")
-    private List<Member> member = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -35,11 +32,4 @@ public class Team extends BaseEntity{
         this.name = name;
     }
 
-    public List<Member> getMember() {
-        return member;
-    }
-
-    public void setMember(List<Member> member) {
-        this.member = member;
-    }
 }
